@@ -64,6 +64,31 @@
     color: var(--text2);
     margin-left: auto;
   }
+  .hdr-control {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+  }
+  .hdr-label {
+    color: var(--text2);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+  .hdr-control select {
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border2);
+    border-radius: 4px;
+    padding: 3px 6px;
+    font-size: 12px;
+    font-family: var(--font);
+    cursor: pointer;
+    outline: none;
+  }
+  .hdr-control select:hover { border-color: var(--accent); }
+  .hdr-control select:focus { border-color: var(--accent); }
 
   /* ── LAYOUT ───────────────────────────────────────────────────────── */
   .app {
@@ -417,6 +442,8 @@
     .pane.mv-pane { max-height: 30vh; overflow-y: auto; }
     #map { height: 50vh; min-height: 300px; }
     .details { max-height: none; }
+    .hdr-label { display: none; }
+    .app-header h1 { font-size: 12px; }
   }
 </style>
 </head>
@@ -427,6 +454,14 @@
   <header class="app-header">
     <h1>BAND-MAID MV Locations</h1>
     <span class="count" id="count"></span>
+    <label class="hdr-control">
+      <span class="hdr-label">Map</span>
+      <select id="mapStyleSelect"></select>
+    </label>
+    <label class="hdr-control" id="langWrap" style="display:none;">
+      <span class="hdr-label">Lang</span>
+      <select id="mapLangSelect"></select>
+    </label>
   </header>
 
   <div class="panes">
@@ -470,6 +505,88 @@
   const JSON_URL    = REPO_BASE + 'mv.json';
   const IMAGE_BASE  = REPO_BASE + 'images/';   // mv.json stores bare filenames
 
+  // ── MAP CONFIG ───────────────────────────────────────────────────────
+  // To enable language-switching map labels: get a free MapTiler key from
+  // https://www.maptiler.com/cloud/ and paste it below. Free tier = 100k
+  // tile loads/month, no card required. With no key the language dropdown
+  // is hidden and only the OSM/Carto styles are available.
+  const MAPTILER_KEY = '';   // ← paste your key here
+
+  // Tile-layer presets. {lang} placeholder is replaced for MapTiler styles.
+  const MAP_STYLES = {
+    osm: {
+      label: 'OpenStreetMap (color)',
+      url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      options: {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      },
+      multilang: false
+    },
+    positron: {
+      label: 'Positron (light)',
+      url: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+      options: {
+        maxZoom: 20,
+        subdomains: 'abcd',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+      },
+      multilang: false
+    },
+    voyager: {
+      label: 'Voyager (muted color)',
+      url: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+      options: {
+        maxZoom: 20,
+        subdomains: 'abcd',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+      },
+      multilang: false
+    },
+    'maptiler-streets': {
+      label: 'MapTiler Streets',
+      url: 'https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=' + MAPTILER_KEY + '&language={lang}',
+      options: {
+        maxZoom: 22,
+        attribution: '&copy; <a href="https://www.maptiler.com/copyright/">MapTiler</a> &copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>',
+        crossOrigin: true
+      },
+      multilang: true,
+      requiresKey: true
+    },
+    'maptiler-basic': {
+      label: 'MapTiler Basic',
+      url: 'https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=' + MAPTILER_KEY + '&language={lang}',
+      options: {
+        maxZoom: 22,
+        attribution: '&copy; <a href="https://www.maptiler.com/copyright/">MapTiler</a> &copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>',
+        crossOrigin: true
+      },
+      multilang: true,
+      requiresKey: true
+    }
+  };
+
+  // Languages MapTiler supports. The 'name' option uses each region's local
+  // name (Tokyo → 東京, Roma stays Roma). Good "default" for international maps.
+  const MAP_LANGUAGES = [
+    { code: 'name',   label: 'Local (default)' },
+    { code: 'en',     label: 'English' },
+    { code: 'ja',     label: '日本語 (Japanese)' },
+    { code: 'es',     label: 'Español' },
+    { code: 'fr',     label: 'Français' },
+    { code: 'de',     label: 'Deutsch' },
+    { code: 'zh',     label: '中文' },
+    { code: 'ko',     label: '한국어' },
+    { code: 'ru',     label: 'Русский' },
+    { code: 'ar',     label: 'العربية' },
+    { code: 'pt',     label: 'Português' },
+    { code: 'it',     label: 'Italiano' }
+  ];
+
+  const PREF_STYLE_KEY = 'bm-mv-map-style';
+  const PREF_LANG_KEY  = 'bm-mv-map-lang';
+
   // ── STATE ────────────────────────────────────────────────────────────
   let allMVs        = [];
   let currentMV     = null;
@@ -479,6 +596,9 @@
   let ytPlayer      = null;
   let ytReady       = false;
   let pendingVideoId = null;        // queued before YT API ready
+  let currentTileLayer = null;      // active Leaflet TileLayer (so we can swap it)
+  let currentStyleKey  = 'osm';
+  let currentLangCode  = 'name';
 
   // ── YOUTUBE API READY ────────────────────────────────────────────────
   function onYouTubeIframeAPIReady() {
@@ -504,6 +624,10 @@
       renderMVList();
       document.getElementById('count').textContent =
         allMVs.length + ' MV' + (allMVs.length === 1 ? '' : 's');
+
+      // Auto-select first MV on load — saves a click and gives a clear
+      // starting state instead of two "select something" panes.
+      if (allMVs.length > 0) selectMV(0);
     } catch (err) {
       document.getElementById('mvList').innerHTML =
         '<div class="empty-state">Failed to load mv.json<br><small>' +
@@ -583,11 +707,67 @@
       worldCopyJump: true
     }).setView([35.6762, 139.6503], 5); // Tokyo-ish default
 
-    // Standard OpenStreetMap — full color, more visual context
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      maxZoom: 19
-    }).addTo(map);
+    // Restore saved prefs (or fall back to defaults).
+    const savedStyle = localStorage.getItem(PREF_STYLE_KEY);
+    const savedLang  = localStorage.getItem(PREF_LANG_KEY);
+    if (savedStyle && MAP_STYLES[savedStyle]) currentStyleKey = savedStyle;
+    if (savedLang) currentLangCode = savedLang;
+
+    // If MapTiler isn't configured but the saved pref needs it, fall back.
+    if (MAP_STYLES[currentStyleKey].requiresKey && !MAPTILER_KEY) {
+      currentStyleKey = 'osm';
+    }
+
+    populateMapControls();
+    applyTileLayer();
+  }
+
+  function populateMapControls() {
+    const styleSel = document.getElementById('mapStyleSelect');
+    const langSel  = document.getElementById('mapLangSelect');
+    const langWrap = document.getElementById('langWrap');
+
+    // Style dropdown — hide MapTiler entries if no key configured.
+    styleSel.innerHTML = Object.entries(MAP_STYLES)
+      .filter(([_, cfg]) => !cfg.requiresKey || MAPTILER_KEY)
+      .map(([key, cfg]) =>
+        `<option value="${key}"${key === currentStyleKey ? ' selected' : ''}>${cfg.label}</option>`
+      ).join('');
+    styleSel.addEventListener('change', e => {
+      currentStyleKey = e.target.value;
+      localStorage.setItem(PREF_STYLE_KEY, currentStyleKey);
+      applyTileLayer();
+      updateLangVisibility();
+    });
+
+    // Language dropdown — only meaningful for multilang styles.
+    langSel.innerHTML = MAP_LANGUAGES.map(l =>
+      `<option value="${l.code}"${l.code === currentLangCode ? ' selected' : ''}>${l.label}</option>`
+    ).join('');
+    langSel.addEventListener('change', e => {
+      currentLangCode = e.target.value;
+      localStorage.setItem(PREF_LANG_KEY, currentLangCode);
+      applyTileLayer();
+    });
+
+    updateLangVisibility();
+  }
+
+  function updateLangVisibility() {
+    const langWrap = document.getElementById('langWrap');
+    const cfg = MAP_STYLES[currentStyleKey];
+    langWrap.style.display = (cfg && cfg.multilang) ? '' : 'none';
+  }
+
+  function applyTileLayer() {
+    if (currentTileLayer) {
+      map.removeLayer(currentTileLayer);
+      currentTileLayer = null;
+    }
+    const cfg = MAP_STYLES[currentStyleKey];
+    if (!cfg) return;
+    const url = cfg.url.replace('{lang}', currentLangCode);
+    currentTileLayer = L.tileLayer(url, cfg.options).addTo(map);
   }
 
   function clearMarkers() {
