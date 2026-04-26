@@ -1,4 +1,4 @@
-﻿[
+[
     {
         "Song":  "Don\u0027t Let Me Down",
         "VideoId":  "0YGwUhg2XNk",
@@ -7,55 +7,64 @@
                            "Scene":  "0:21-0:24, 2:13-2:20",
                            "Lat":  35.715264,
                            "Lon":  139.7721623,
-                           "Images":  "d5c8328ca1301f05.jpg"
+                           "Images":  "d5c8328ca1301f05.jpg",
+                           "Location":  "Taito, Japan"
                        },
                        {
                            "Scene":  "0:29-0:30, 3:18-3:23",
                            "Lat":  35.6568325,
                            "Lon":  139.7458774,
-                           "Images":  "3e8af2cedf751670.jpg"
+                           "Images":  "3e8af2cedf751670.jpg",
+                           "Location":  "Minato, Japan"
                        },
                        {
                            "Scene":  "0:31-0:32",
                            "Lat":  35.6581664,
                            "Lon":  139.7455999,
-                           "Images":  "63045b5335197bbf.jpg"
+                           "Images":  "63045b5335197bbf.jpg",
+                           "Location":  "Minato, Japan"
                        },
                        {
                            "Scene":  "0:34-0:37",
                            "Lat":  35.6586407,
                            "Lon":  139.7462096,
-                           "Images":  "325cecee20fbcc91.jpg"
+                           "Images":  "325cecee20fbcc91.jpg",
+                           "Location":  "Minato, Japan"
                        },
                        {
                            "Scene":  "0:39-0:42",
                            "Lat":  35.657449,
                            "Lon":  139.7457342,
-                           "Images":  "0c9a5904450b424a.jpg"
+                           "Images":  "0c9a5904450b424a.jpg",
+                           "Location":  "Minato, Japan"
                        },
                        {
                            "Scene":  "1:11-1:14, 1:21-1:24",
                            "Lat":  35.6595019,
                            "Lon":  139.7004398,
-                           "Images":  "5ad9a6d6248ac074.jpg"
+                           "Images":  "5ad9a6d6248ac074.jpg",
+                           "Location":  "Shibuya, Japan"
                        },
                        {
                            "Scene":  "1:34-1:38",
                            "Lat":  35.713731,
                            "Lon":  139.7727035,
-                           "Images":  "e024e480d7df710c.jpg"
+                           "Images":  "e024e480d7df710c.jpg",
+                           "Location":  "Taito, Japan"
                        },
                        {
                            "Scene":  "1:42-1:48",
                            "Lat":  35.6595102,
                            "Lon":  139.7005421,
-                           "Images":  "85f89772ce013a92.jpg"
+                           "Images":  "85f89772ce013a92.jpg",
+                           "Location":  "Shibuya, Japan"
                        },
                        {
                            "Scene":  "2:20-2:28",
                            "Lat":  35.6981898,
                            "Lon":  139.7715938,
-                           "Images":  "e6deb796352afba8.jpg"
+                           "Images":  "e6deb796352afba8.jpg",
+                           "Location":  "Chiyoda, Japan"
                        }
                    ]
     },
@@ -67,43 +76,50 @@
                            "Scene":  "0:00-0:20, 1:03-1:21, 1:31-3:59",
                            "Lat":  47.6125114,
                            "Lon":  -122.3325059,
-                           "Description":  "Before Yesterday MV Washington State Convention and Trade Center (live footage 2016-03-26)"
+                           "Description":  "Before Yesterday MV Washington State Convention and Trade Center (live footage 2016-03-26)",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "0:21-0:26",
                            "Lat":  47.6124874,
                            "Lon":  -122.331395,
-                           "Images":  "44c0c5d32ba37b4d.jpg"
+                           "Images":  "44c0c5d32ba37b4d.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "0:26-0:28",
                            "Lat":  47.6140076,
                            "Lon":  -122.3230666,
-                           "Images":  "3f92586d85d49e08.jpg"
+                           "Images":  "3f92586d85d49e08.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "0:28",
                            "Lat":  47.6121398,
                            "Lon":  -122.3322094,
-                           "Images":  "7d5181fc53b395a5.jpg"
+                           "Images":  "7d5181fc53b395a5.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "0:29",
                            "Lat":  47.6098937,
                            "Lon":  -122.3337316,
-                           "Images":  "62da2dee3eea96da.jpg"
+                           "Images":  "62da2dee3eea96da.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "0:29-0:30",
                            "Lat":  47.6111935,
                            "Lon":  -122.3375249,
-                           "Images":  "bbfc04b76430577e.jpg"
+                           "Images":  "bbfc04b76430577e.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "0:31-0:32",
                            "Lat":  47.6140496,
                            "Lon":  -122.3249391,
-                           "Images":  "bebe1f1b706972ba.jpg"
+                           "Images":  "bebe1f1b706972ba.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "0:33-0:36",
@@ -113,7 +129,8 @@
                                           "1520dcccb0240f62.jpg",
                                           "2866d69736e29639.jpg",
                                           "fad148c063b88561.jpg"
-                                      ]
+                                      ],
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "0:36-0:38",
@@ -122,127 +139,148 @@
                            "Images":  [
                                           "c9c2d9d3245fefce.jpg",
                                           "e7afc2ce910d122d.jpg"
-                                      ]
+                                      ],
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "0:38-0:39",
                            "Lat":  47.6140476,
                            "Lon":  -122.325015,
-                           "Images":  "63e7b0b824ecbd7e.jpg"
+                           "Images":  "63e7b0b824ecbd7e.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "0:40a",
                            "Lat":  47.6086374,
                            "Lon":  -122.3406391,
-                           "Images":  "ff93ceb2af205a9a.jpg"
+                           "Images":  "ff93ceb2af205a9a.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "0:40b",
                            "Lat":  47.609061,
                            "Lon":  -122.3415075,
-                           "Images":  "108920eb0e154cf3.jpg"
+                           "Images":  "108920eb0e154cf3.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "0:40c",
                            "Lat":  47.6089139,
                            "Lon":  -122.3413406,
-                           "Images":  "947c295e06c5a101.jpg"
+                           "Images":  "947c295e06c5a101.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "0:41",
                            "Lat":  47.6100112,
                            "Lon":  -122.342626,
-                           "Images":  "226bb5a7d4105167.jpg"
+                           "Images":  "226bb5a7d4105167.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "0:42a",
                            "Lat":  47.6099624,
                            "Lon":  -122.3438638,
-                           "Images":  "d6e2824ba31c89b0.jpg"
+                           "Images":  "d6e2824ba31c89b0.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "0:42b",
                            "Lat":  47.6102413,
                            "Lon":  -122.3434722,
-                           "Images":  "c1e08bd84c1fa99d.jpg"
+                           "Images":  "c1e08bd84c1fa99d.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "0:42-044",
                            "Lat":  47.6109317,
                            "Lon":  -122.3380841,
-                           "Images":  "52ef68e20a64b732.jpg"
+                           "Images":  "52ef68e20a64b732.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "0:44-0:46",
                            "Lat":  47.6127878,
                            "Lon":  -122.333359,
-                           "Images":  "fa6f5cfa6ea8025e.jpg"
+                           "Images":  "fa6f5cfa6ea8025e.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "0:46-0:49",
                            "Lat":  47.6097212,
                            "Lon":  -122.341987,
-                           "Images":  "c49667698d967ae9.jpg"
+                           "Images":  "c49667698d967ae9.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "0:49-0:50",
                            "Lat":  47.6085928,
                            "Lon":  -122.3409422,
-                           "Images":  "c932840c69cbfb79.jpg"
+                           "Images":  "c932840c69cbfb79.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "0:50-0:51",
                            "Lat":  47.609754,
                            "Lon":  -122.3380364,
-                           "Images":  "f2addad330c50dbe.jpg"
+                           "Images":  "f2addad330c50dbe.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "0:51-0:52",
                            "Lat":  47.6089622,
                            "Lon":  -122.341369,
-                           "Images":  "11703c4d7ac500a6.jpg"
+                           "Images":  "11703c4d7ac500a6.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "0:52",
                            "Lat":  47.609724,
                            "Lon":  -122.3381134,
-                           "Images":  "cef188c72175b2b2.jpg"
+                           "Images":  "cef188c72175b2b2.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "0:53-0:56",
                            "Lat":  47.6107664,
                            "Lon":  -122.3384925,
-                           "Images":  "69baed8e0a20cd71.jpg"
+                           "Images":  "69baed8e0a20cd71.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "0:56-1:02",
                            "Lat":  47.6115591,
                            "Lon":  -122.332693,
-                           "Images":  "05e248023c979b43.jpg"
+                           "Images":  "05e248023c979b43.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "1:22-1:29",
                            "Lat":  47.6102618,
                            "Lon":  -122.3434243,
-                           "Images":  "e1b0263215bd668d.jpg"
+                           "Images":  "e1b0263215bd668d.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "1:29-1:30",
                            "Lat":  47.6125451,
                            "Lon":  -122.3309085,
-                           "Images":  "7b50e920f8750659.jpg"
+                           "Images":  "7b50e920f8750659.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "1:30a",
                            "Lat":  47.6141388,
                            "Lon":  -122.3227656,
-                           "Images":  "e785eeb2cfacbc42.jpg"
+                           "Images":  "e785eeb2cfacbc42.jpg",
+                           "Location":  "Seattle, United States"
                        },
                        {
                            "Scene":  "1:30b",
                            "Lat":  47.6140041,
                            "Lon":  -122.3228729,
-                           "Images":  "d27d986009735b86.jpg"
+                           "Images":  "d27d986009735b86.jpg",
+                           "Location":  "Seattle, United States"
                        }
                    ]
     },
@@ -257,7 +295,8 @@
                            "Images":  [
                                           "86a9a0716ec64eb3.jpg",
                                           "d7f8816fb0b3e389.jpg"
-                                      ]
+                                      ],
+                           "Location":  "New Taipei, Taiwan"
                        },
                        {
                            "Scene":  "0:07-0:10, 1:47-1:50",
@@ -267,7 +306,8 @@
                                           "07c9510d150d9d7b.jpg",
                                           "f09914e8ed19666b.jpg",
                                           "1bfd6b0ef4e6b994.jpg"
-                                      ]
+                                      ],
+                           "Location":  "New Taipei, Taiwan"
                        },
                        {
                            "Scene":  "0:11-0:13, 2:12-2:17",
@@ -277,25 +317,29 @@
                                           "8205ef01cb2bd70f.jpg",
                                           "585331922acc170e.jpg",
                                           "fcf96dae4a7a3d50.jpg"
-                                      ]
+                                      ],
+                           "Location":  "New Taipei, Taiwan"
                        },
                        {
                            "Scene":  "0:14-0:15",
                            "Lat":  25.0092075,
                            "Lon":  121.4558158,
-                           "Images":  "c6c20f06d4f71fe9.jpg"
+                           "Images":  "c6c20f06d4f71fe9.jpg",
+                           "Location":  "New Taipei, Taiwan"
                        },
                        {
                            "Scene":  "0:15-0:16",
                            "Lat":  25.0087652,
                            "Lon":  121.4556602,
-                           "Images":  "90f14474376a5e6f.jpg"
+                           "Images":  "90f14474376a5e6f.jpg",
+                           "Location":  "New Taipei, Taiwan"
                        },
                        {
                            "Scene":  "0:17-0:19",
                            "Lat":  25.0091318,
                            "Lon":  121.4555526,
-                           "Images":  "74ec33277f5446c2.jpg"
+                           "Images":  "74ec33277f5446c2.jpg",
+                           "Location":  "New Taipei, Taiwan"
                        },
                        {
                            "Scene":  "0:19-0:22, 0:41-0:49, 0:54-0:56, 1:01-1:04, 1:09-1:11, 1:29-1:30, 1:37-1:38, 1:44-1:46, 2:02-2:03, 2:17-2:20, 2:26-2:27, 2:36-2:37, 2:43, 3:25-3:28, 3:35-3:36, 3:45-3:46, 3:53-3:56",
@@ -305,7 +349,8 @@
                                           "fe82972f079986ce.jpg",
                                           "9efa4db706415e02.jpg",
                                           "0481c0c10ffc4d41.jpg"
-                                      ]
+                                      ],
+                           "Location":  "New Taipei, Taiwan"
                        },
                        {
                            "Scene":  "0:23, 0:35-0:36, 0:57-1:01, 1:07-1:08, 1:14-1:15, 1:22-1:24, 2:04-2:08, 2:22-2:24, 3:43-3:44",
@@ -316,7 +361,8 @@
                                           "b3183f11221cff34.jpg",
                                           "76bdddb163f5ebda.jpg",
                                           "7b4d98ca7e5f23b6.jpg"
-                                      ]
+                                      ],
+                           "Location":  "Keelung, Taiwan"
                        },
                        {
                            "Scene":  "0:24-0:25, 0:32-0:33, 0:39, 0:56-0:57, 1:08-1:09, 1:16-1:17, 1:21-1:22, 1:26-1:28, 2:11-2:12, 2:24-2:26, 2:57-2:58, 3:36, 3:44, 3:48-3:49",
@@ -326,7 +372,8 @@
                                           "90cbf0aaeef0f0a9.jpg",
                                           "2a738654a972613e.jpg",
                                           "5929b5ec4d2eb589.jpg"
-                                      ]
+                                      ],
+                           "Location":  "Keelung, Taiwan"
                        },
                        {
                            "Scene":  "0:30-0:31, 1:04-1:06, 1:24-1:26, 1:28-1:29, 1:55-1:57, 2:35-2:36, 2:37-2:39, 2:41-2:42, 3:07-3:11",
@@ -335,7 +382,8 @@
                            "Images":  [
                                           "1cbb88e68e5a083d.jpg",
                                           "ef728577f31ed21e.jpg"
-                                      ]
+                                      ],
+                           "Location":  "New Taipei, Taiwan"
                        },
                        {
                            "Scene":  "0:32-0:35",
@@ -344,13 +392,15 @@
                            "Images":  [
                                           "72110e9b7da78851.jpg",
                                           "49b5e7eb476eb2fb.jpg"
-                                      ]
+                                      ],
+                           "Location":  "New Taipei, Taiwan"
                        },
                        {
                            "Scene":  "0:36-0:37",
                            "Lat":  25.0108182,
                            "Lon":  121.4550691,
-                           "Images":  "b2f91fdef626d7b6.jpg"
+                           "Images":  "b2f91fdef626d7b6.jpg",
+                           "Location":  "New Taipei, Taiwan"
                        },
                        {
                            "Scene":  "0:38",
@@ -359,7 +409,8 @@
                            "Images":  [
                                           "f9adfd03ae486125.jpg",
                                           "9d03d697ef0feed1.jpg"
-                                      ]
+                                      ],
+                           "Location":  "New Taipei, Taiwan"
                        },
                        {
                            "Scene":  "1:30-1:37, 1:39-1:44, 1:46, 1:50-1:55, 1:57-2:02, 2:10-2:11, 2:27-2:28, 2:46, 2:50-2:51, 2:56-2:57, 3:11-3:14, 3:18-3:19, 3:20-3:25, 3:28-3:34, 3:37-3:39, 3:46-3:48, 3:49-3:53, 3:56-3:59",
@@ -377,7 +428,8 @@
                                           "1ba3883ad92ec05e.jpg",
                                           "3b9baca6addc38b0.jpg",
                                           "8c6d2ef202ffdac8.jpg"
-                                      ]
+                                      ],
+                           "Location":  "Keelung, Taiwan"
                        },
                        {
                            "Scene":  "2:28-2:32, 2:39-2:41, 2:52, 2:55, 3:02-3:03, 3:40-3:41",
@@ -387,7 +439,8 @@
                                           "5bf1ab2a39809e57.jpg",
                                           "c78a8064f06141f4.jpg",
                                           "22483db4ccd7ee0f.jpg"
-                                      ]
+                                      ],
+                           "Location":  "New Taipei, Taiwan"
                        },
                        {
                            "Scene":  "2:32-2:34, 2:46-2:49, 2:52-2:53, 2:58-3:02, 3:03-3:04, 3:41-3:42",
@@ -397,7 +450,8 @@
                                           "1841b1dffdbbb986.jpg",
                                           "90bcc9eb6b286b9a.jpg",
                                           "59eb1fc647ae4ea0.jpg"
-                                      ]
+                                      ],
+                           "Location":  "New Taipei, Taiwan"
                        },
                        {
                            "Scene":  "0:25-0:29, 0:31, 0:39-0:40, 0:49-0:54, 1:12-1:13, 1:18-1:21, 2:08-2:10, 2:20-2:22, 2:43-2:45, 3:04-3:07",
@@ -408,7 +462,8 @@
                                           "b3ed863cf0d95dcb.jpg",
                                           "fa34d8818efce2ca.jpg",
                                           "77e4d35a18f8689d.jpg"
-                                      ]
+                                      ],
+                           "Location":  "Keelung, Taiwan"
                        },
                        {
                            "Scene":  "2:51-2:52, 2:54, 3:39-3:40",
@@ -417,7 +472,8 @@
                            "Images":  [
                                           "d540c50e7a42a54b.jpg",
                                           "7102cee04a5c0727.jpg"
-                                      ]
+                                      ],
+                           "Location":  "New Taipei, Taiwan"
                        },
                        {
                            "Scene":  "3:14-3:17, 3:20",
@@ -426,7 +482,8 @@
                            "Images":  [
                                           "550c89ec475b5c02.jpg",
                                           "43aee12b7212dfb0.jpg"
-                                      ]
+                                      ],
+                           "Location":  "Keelung, Taiwan"
                        }
                    ]
     },
@@ -438,7 +495,8 @@
                            "Scene":  "0:00-0:09",
                            "Lat":  35.0099908,
                            "Lon":  135.6772402,
-                           "Images":  "daf67e09bc8cd321.jpg"
+                           "Images":  "daf67e09bc8cd321.jpg",
+                           "Location":  "Kyoto, Japan"
                        },
                        {
                            "Scene":  "0:10-0:16, 0:20",
@@ -447,7 +505,8 @@
                            "Images":  [
                                           "9583c03dd16d618e.jpg",
                                           "fd22da07d45f89b3.jpg"
-                                      ]
+                                      ],
+                           "Location":  "Kyoto, Japan"
                        },
                        {
                            "Scene":  "0:16-0:17, 0:29-0:31, 0:32-0:34, 0:35-0:42, 1:07-1:16, 1:17-1:21, 1:28-1:30, 1:33-1:34, 2:06-2:09, 2:10, 2:12-2:14, 2:22, 2:23-2:26, 2:39-2:47, 2:48-2:53, 3:05-3:17",
@@ -461,7 +520,8 @@
                                           "004cc54bfd629fb2.jpg",
                                           "fd4398383ec76393.jpg",
                                           "aa67060cfab21dfe.jpg"
-                                      ]
+                                      ],
+                           "Location":  "Kyoto, Japan"
                        },
                        {
                            "Scene":  "0:17-0:18, 1:41-1:42, 1:43, 2:03, 2:14-2:19, 2:53-2:57, 3:02-3:03, 3:27, 3:35-3:36",
@@ -472,7 +532,8 @@
                                           "1b74c79cab751c94.jpg",
                                           "527ae310ecfdcfcf.jpg",
                                           "afe714cfa5361c81.jpg"
-                                      ]
+                                      ],
+                           "Location":  "Kyoto, Japan"
                        },
                        {
                            "Scene":  "0:18, 0:55-1:00, 1:42, 1:44-1:46, 1:50-1:53, 2:00-2:02, 2:04, 2:19-2:20, 3:01. 3:21-3:23, 3:26, 3:28, 3:30-3:31, 3:36",
@@ -481,7 +542,8 @@
                            "Images":  [
                                           "ea2dc1a349c97472.jpg",
                                           "bf4437098328455b.jpg"
-                                      ]
+                                      ],
+                           "Location":  "Kyoto, Japan"
                        },
                        {
                            "Scene":  "0:19, 0:54, 1:37-1:39, 1:46-1:47, 2:05, 2:48, 3:29, 3:37, 3:40-3:41",
@@ -490,7 +552,8 @@
                            "Images":  [
                                           "9504cdb6b7f3a34f.jpg",
                                           "87b07406b1c40527.jpg"
-                                      ]
+                                      ],
+                           "Location":  "Kyoto, Japan"
                        },
                        {
                            "Scene":  "0:20-0:21, 1:25-1:26, 1:47-1:50, 2:26-2:31, 3:00-3:01, 3:02, 3:04, 3:23-3:25, 3:31-3:33, 3:39-3:40",
@@ -499,13 +562,15 @@
                            "Images":  [
                                           "d928608d7d332360.jpg",
                                           "263b554ef0f91c9b.jpg"
-                                      ]
+                                      ],
+                           "Location":  "Kyoto, Japan"
                        },
                        {
                            "Scene":  "0:21, 1:31-1:32",
                            "Lat":  34.9981389,
                            "Lon":  135.7801447,
-                           "Images":  "159a64c8d1b87738.jpg"
+                           "Images":  "159a64c8d1b87738.jpg",
+                           "Location":  "Kyoto, Japan"
                        },
                        {
                            "Scene":  "0:22, 1:01-1:05",
@@ -514,7 +579,8 @@
                            "Images":  [
                                           "341551ec2de2dda1.jpg",
                                           "a92243cc969fbece.jpg"
-                                      ]
+                                      ],
+                           "Location":  "Kyoto, Japan"
                        },
                        {
                            "Scene":  "0:23, 1:22-1:25",
@@ -523,13 +589,15 @@
                            "Images":  [
                                           "e4c811f97f8fa980.jpg",
                                           "264f800749c60ee2.jpg"
-                                      ]
+                                      ],
+                           "Location":  "Kyoto, Japan"
                        },
                        {
                            "Scene":  "0:23-0:28",
                            "Lat":  34.9982883,
                            "Lon":  135.7808477,
-                           "Images":  "51183b0d9fe68ce5.jpg"
+                           "Images":  "51183b0d9fe68ce5.jpg",
+                           "Location":  "Kyoto, Japan"
                        },
                        {
                            "Scene":  "0:28-0:29, 2:09, 2:10-2:11, 2:21, 2:22-2:23",
@@ -538,7 +606,8 @@
                            "Images":  [
                                           "a26ff3f81e926f1b.jpg",
                                           "645df30c4659a87c.jpg"
-                                      ]
+                                      ],
+                           "Location":  "Kyoto, Japan"
                        },
                        {
                            "Scene":  "0:31-0:32, 0:34-0:35, 0:42-0:53, 1:06, 1:16, 1:26-1:27, 1:34-1:37, 1:39-1:41, 2:02, 2:20-2:21, 2:31-2:38, 3:17-3:21, 3:29, 3:33-3:35, 3:37-3:39, 3:41-3:46",
@@ -547,7 +616,8 @@
                            "Images":  [
                                           "b6240f39690c43d6.jpg",
                                           "74b7793e99bd844b.jpg"
-                                      ]
+                                      ],
+                           "Location":  "Kyoto, Japan"
                        },
                        {
                            "Scene":  "1:53-2:00",
@@ -557,7 +627,8 @@
                                           "8fb64b33ef6ea8cd.jpg",
                                           "9b231ce398fc7b4f.jpg",
                                           "f10bd4660afa22b8.jpg"
-                                      ]
+                                      ],
+                           "Location":  "Kyoto, Japan"
                        },
                        {
                            "Scene":  "2:58-3:00, 3:48-3:55",
@@ -567,7 +638,8 @@
                                           "b340790bc212ae12.jpg",
                                           "707c6c5b0f79af24.jpg",
                                           "f24fafba85499f02.jpg"
-                                      ]
+                                      ],
+                           "Location":  "Kyoto, Japan"
                        }
                    ]
     },
@@ -579,7 +651,8 @@
                            "Scene":  "Thrill MV",
                            "Lat":  35.6495358,
                            "Lon":  139.6948829,
-                           "Description":  "Studio PALS"
+                           "Description":  "Studio PALS",
+                           "Location":  "Meguro, Japan"
                        }
                    ]
     },
@@ -591,13 +664,15 @@
                            "Scene":  "REAL EXISTENCE MV (external shots)",
                            "Lat":  35.6923018,
                            "Lon":  139.6518489,
-                           "Description":  "Horinouchi Myouhouji"
+                           "Description":  "Horinouchi Myouhouji",
+                           "Location":  "Suginami, Japan"
                        },
                        {
                            "Scene":  "REAL EXISTENCE MV (internal shots)",
                            "Lat":  35.7535311,
                            "Lon":  139.8650835,
-                           "Description":  "Katsushika Soufukuji"
+                           "Description":  "Katsushika Soufukuji",
+                           "Location":  "Katsushika, Japan"
                        }
                    ]
     },
@@ -609,7 +684,8 @@
                            "Scene":  "alone MV",
                            "Lat":  35.5760845,
                            "Lon":  139.7467347,
-                           "Description":  "Sound Crew Studio Ast"
+                           "Description":  "Sound Crew Studio Ast",
+                           "Location":  "Ota, Japan"
                        }
                    ]
     },
@@ -621,7 +697,8 @@
                            "Scene":  "the non-fiction days MV",
                            "Lat":  35.8378005,
                            "Lon":  140.7632486,
-                           "Description":  "Namisaki Wind Farm"
+                           "Description":  "Namisaki Wind Farm",
+                           "Location":  "Kamisu, Japan"
                        }
                    ]
     },
@@ -633,7 +710,8 @@
                            "Scene":  "ORDER MV",
                            "Lat":  35.6644181,
                            "Lon":  139.699141,
-                           "Description":  "shibuya eggman (live footage from 2016-02-27)"
+                           "Description":  "shibuya eggman (live footage from 2016-02-27)",
+                           "Location":  "Shibuya, Japan"
                        }
                    ]
     },
@@ -645,7 +723,8 @@
                            "Scene":  "YOLO MV",
                            "Lat":  35.5870647,
                            "Lon":  139.5653211,
-                           "Description":  "Avaco Saginuma S-1st"
+                           "Description":  "Avaco Saginuma S-1st",
+                           "Location":  "Kawasaki, Japan"
                        }
                    ]
     },
@@ -657,7 +736,8 @@
                            "Scene":  "Don\u0027t you tell ME MV",
                            "Lat":  36.387019,
                            "Lon":  139.0508258,
-                           "Description":  "Royal Chester Maebashi"
+                           "Description":  "Royal Chester Maebashi",
+                           "Location":  "Maebashi, Japan"
                        }
                    ]
     },
@@ -669,7 +749,8 @@
                            "Scene":  "secret My lips MV",
                            "Lat":  35.6725604,
                            "Lon":  139.7353823,
-                           "Description":  "Akasaka Blitz (live footage from 2017-01-09)"
+                           "Description":  "Akasaka Blitz (live footage from 2017-01-09)",
+                           "Location":  "Minato, Japan"
                        }
                    ]
     },
@@ -681,7 +762,8 @@
                            "Scene":  "DOMINATION MV",
                            "Lat":  35.5863043,
                            "Lon":  139.5693162,
-                           "Description":  "Interstudio I-1st"
+                           "Description":  "Interstudio I-1st",
+                           "Location":  "Kawasaki, Japan"
                        }
                    ]
     },
@@ -693,7 +775,8 @@
                            "Scene":  "DICE MV",
                            "Lat":  35.7756979,
                            "Lon":  139.6922994,
-                           "Description":  "Studio Be 1-gokan Ast"
+                           "Description":  "Studio Be 1-gokan Ast",
+                           "Location":  "Itabashi, Japan"
                        }
                    ]
     },
@@ -705,13 +788,15 @@
                            "Scene":  "secret MAIKO lips MV (principal studio)",
                            "Lat":  35.7719258,
                            "Lon":  139.7043587,
-                           "Description":  "Studio Be 3-gokan D-1st"
+                           "Description":  "Studio Be 3-gokan D-1st",
+                           "Location":  "Itabashi, Japan"
                        },
                        {
                            "Scene":  "secret MAIKO lips MV (final scene)",
                            "Lat":  35.659362,
                            "Lon":  139.700672,
-                           "Images":  "102f65f0c265d304.jpg"
+                           "Images":  "102f65f0c265d304.jpg",
+                           "Location":  "Shibuya, Japan"
                        }
                    ]
     },
@@ -723,7 +808,8 @@
                            "Scene":  "start over MV",
                            "Lat":  35.3468429,
                            "Lon":  138.8829556,
-                           "Description":  "Aberdeen Studio"
+                           "Description":  "Aberdeen Studio",
+                           "Location":  "Oyama, Japan"
                        }
                    ]
     },
@@ -735,7 +821,8 @@
                            "Scene":  "glory MV",
                            "Lat":  35.5961097,
                            "Lon":  139.7536072,
-                           "Description":  "TELEC semi-anechoic chamber"
+                           "Description":  "TELEC semi-anechoic chamber",
+                           "Location":  "Shinagawa, Japan"
                        }
                    ]
     },
@@ -747,7 +834,8 @@
                            "Scene":  "Bubble MV",
                            "Lat":  35.5321781,
                            "Lon":  139.3691016,
-                           "Description":  "Grass Factory Studio"
+                           "Description":  "Grass Factory Studio",
+                           "Location":  "Sagamihara, Japan"
                        }
                    ]
     },
@@ -759,13 +847,15 @@
                            "Scene":  "endless Story MV (lava flow)",
                            "Lat":  34.730389,
                            "Lon":  139.4202865,
-                           "Description":  "Ooshima"
+                           "Description":  "Ooshima",
+                           "Location":  "Tokyo, Japan"
                        },
                        {
                            "Scene":  "endless Story MV (beach)",
                            "Lat":  34.7966405,
                            "Lon":  139.360931,
-                           "Description":  "Nodahama, Ooshima"
+                           "Description":  "Nodahama, Ooshima",
+                           "Location":  "Tokyo, Japan"
                        }
                    ]
     },
@@ -777,7 +867,8 @@
                            "Scene":  "Rinne MV",
                            "Lat":  35.3186149,
                            "Lon":  138.5852077,
-                           "Description":  "Fujishiraito Wonder Museum (abandoned)"
+                           "Description":  "Fujishiraito Wonder Museum (abandoned)",
+                           "Location":  "Fujinomiya, Japan"
                        }
                    ]
     },
@@ -789,7 +880,8 @@
                            "Scene":  "The Dragon Cries MV",
                            "Lat":  35.5321464,
                            "Lon":  139.3689903,
-                           "Description":  "Grass Factory Studio"
+                           "Description":  "Grass Factory Studio",
+                           "Location":  "Sagamihara, Japan"
                        }
                    ]
     },
@@ -801,7 +893,8 @@
                            "Scene":  "Different MV",
                            "Lat":  35.5878591,
                            "Lon":  139.5820948,
-                           "Description":  "Avaco Miyamae M-2st"
+                           "Description":  "Avaco Miyamae M-2st",
+                           "Location":  "Kawasaki, Japan"
                        }
                    ]
     },
@@ -813,7 +906,8 @@
                            "Scene":  "Manners MV",
                            "Lat":  35.5010064,
                            "Lon":  138.7172666,
-                           "Description":  "SHIGENO Kawaguchi House"
+                           "Description":  "SHIGENO Kawaguchi House",
+                           "Location":  "Fujikawaguchiko, Japan"
                        }
                    ]
     },
@@ -825,7 +919,8 @@
                            "Scene":  "Warning! MV",
                            "Lat":  35.2088892,
                            "Lon":  138.8887137,
-                           "Description":  "Takahashi Racing practice field \"All-Round Susono V\""
+                           "Description":  "Takahashi Racing practice field \"All-Round Susono V\"",
+                           "Location":  "Susono, Japan"
                        }
                    ]
     },
@@ -837,13 +932,15 @@
                            "Scene":  "After Life MV",
                            "Lat":  35.3787581,
                            "Lon":  139.9283867,
-                           "Description":  "Planear Kisarazu Eki Mae B studios"
+                           "Description":  "Planear Kisarazu Eki Mae B studios",
+                           "Location":  "Kisarazu, Japan"
                        },
                        {
                            "Scene":  "After Life MV intro",
                            "Lat":  35.6995913,
                            "Lon":  139.7707067,
-                           "Description":  "at home maid cafe Akihabara 5F"
+                           "Description":  "at home maid cafe Akihabara 5F",
+                           "Location":  "Chiyoda, Japan"
                        }
                    ]
     },
@@ -855,7 +952,8 @@
                            "Scene":  "Sense MV",
                            "Lat":  35.638104,
                            "Lon":  139.8277426,
-                           "Description":  "Shinkiba Garden Factory Studio"
+                           "Description":  "Shinkiba Garden Factory Studio",
+                           "Location":  "Koto, Japan"
                        }
                    ]
     },
@@ -867,7 +965,8 @@
                            "Scene":  "POGO! MV",
                            "Lat":  36.39576,
                            "Lon":  139.0622889,
-                           "Description":  "Rinkokaku"
+                           "Description":  "Rinkokaku",
+                           "Location":  "Maebashi, Japan"
                        }
                    ]
     },
@@ -879,7 +978,8 @@
                            "Scene":  "with you MV (rooftop)",
                            "Lat":  36.3919918,
                            "Lon":  139.068227,
-                           "Description":  "Maebashi TERRSA Hotel (closed May 2023)"
+                           "Description":  "Maebashi TERRSA Hotel (closed May 2023)",
+                           "Location":  "Maebashi, Japan"
                        },
                        {
                            "Scene":  "with you MV (street)",
@@ -891,13 +991,15 @@
                                        139.0689136,
                                        139.0714296
                                    ],
-                           "Description":  "Babakkawa-dori"
+                           "Description":  "Babakkawa-dori",
+                           "Location":  "Maebashi, Japan"
                        },
                        {
                            "Scene":  "with you MV (phone booth)",
                            "Lat":  36.3896589,
                            "Lon":  139.0709253,
-                           "Description":  "On highway 50 in front of Maebashi Plaza Genki 21"
+                           "Description":  "On highway 50 in front of Maebashi Plaza Genki 21",
+                           "Location":  "Maebashi, Japan"
                        }
                    ]
     },
@@ -909,7 +1011,8 @@
                            "Scene":  "influencer MV",
                            "Lat":  36.3762126,
                            "Lon":  140.2038479,
-                           "Description":  "Ishikiri Sanmyaku"
+                           "Description":  "Ishikiri Sanmyaku",
+                           "Location":  "Kasama, Japan"
                        }
                    ]
     },
@@ -921,7 +1024,8 @@
                            "Scene":  "Dawn Winery Theme \"MV\"",
                            "Lat":  35.5337292,
                            "Lon":  139.5610544,
-                           "Description":  "Yellow Studio Ast"
+                           "Description":  "Yellow Studio Ast",
+                           "Location":  "Yokohama, Japan"
                        }
                    ]
     },
@@ -933,7 +1037,8 @@
                            "Scene":  "Memorable MV",
                            "Lat":  34.7024197,
                            "Lon":  -117.6859056,
-                           "Description":  "Desert outside of Lancaster, CA"
+                           "Description":  "Desert outside of Lancaster, CA",
+                           "Location":  "Los Angeles County, United States"
                        }
                    ]
     },
@@ -945,7 +1050,8 @@
                            "Scene":  "Shambles MV",
                            "Lat":  36.1861946,
                            "Lon":  139.1594735,
-                           "Description":  "STUDIO HONJO SLUM."
+                           "Description":  "STUDIO HONJO SLUM.",
+                           "Location":  "Misato, Japan"
                        }
                    ]
     },
@@ -957,7 +1063,8 @@
                            "Scene":  "Bestie MV",
                            "Lat":  35.5337294,
                            "Lon":  139.5611042,
-                           "Description":  "Yellow Studio Ast"
+                           "Description":  "Yellow Studio Ast",
+                           "Location":  "Yokohama, Japan"
                        }
                    ]
     },
@@ -969,13 +1076,15 @@
                            "Scene":  "Protect You MV (full band+elevator)",
                            "Lat":  35.6996934,
                            "Lon":  139.3603466,
-                           "Description":  "All-Creation Akishima Studio"
+                           "Description":  "All-Creation Akishima Studio",
+                           "Location":  "Akishima, Japan"
                        },
                        {
                            "Scene":  "Protect You MV (individual shots)",
                            "Lat":  35.3700896,
                            "Lon":  139.9113679,
-                           "Description":  "Kisarazu Clean Center"
+                           "Description":  "Kisarazu Clean Center",
+                           "Location":  "Kisarazu, Japan"
                        }
                    ]
     },
@@ -987,25 +1096,29 @@
                            "Scene":  "SHOW THEM MV (principal studio)",
                            "Lat":  35.5870807,
                            "Lon":  139.5650403,
-                           "Description":  "Avaco Saginuma S-2st"
+                           "Description":  "Avaco Saginuma S-2st",
+                           "Location":  "Kawasaki, Japan"
                        },
                        {
                            "Scene":  "SHOW THEM MV (rooftop)",
                            "Lat":  35.6437043,
                            "Lon":  139.7455875,
-                           "Description":  null
+                           "Description":  null,
+                           "Location":  "Minato, Japan"
                        },
                        {
                            "Scene":  "SHOW THEM MV (tunnel)",
                            "Lat":  35.6532451,
                            "Lon":  139.7565039,
-                           "Images":  "e1157d6a1df5e37e.jpg"
+                           "Images":  "e1157d6a1df5e37e.jpg",
+                           "Location":  "Minato, Japan"
                        },
                        {
                            "Scene":  "SHOW THEM MV (street)",
                            "Lat":  35.6493188,
                            "Lon":  139.7448559,
-                           "Images":  "2ffb9c78352af32e.jpg"
+                           "Images":  "2ffb9c78352af32e.jpg",
+                           "Location":  "Minato, Japan"
                        }
                    ]
     },
@@ -1017,13 +1130,15 @@
                            "Scene":  "Forbidden tale MV",
                            "Lat":  36.2840675,
                            "Lon":  139.3761844,
-                           "Description":  "Royal Chester Ota"
+                           "Description":  "Royal Chester Ota",
+                           "Location":  "Ota, Japan"
                        },
                        {
                            "Scene":  "Forbidden tale MV (park)",
                            "Lat":  36.3392165,
                            "Lon":  139.3631477,
-                           "Images":  "fcfb12b575d6171e.jpg"
+                           "Images":  "fcfb12b575d6171e.jpg",
+                           "Location":  "Ota, Japan"
                        }
                    ]
     },
@@ -1035,13 +1150,15 @@
                            "Scene":  "Zen MV (studio scenes)",
                            "Lat":  36.1900878,
                            "Lon":  140.1809316,
-                           "Description":  "Tsukuba Studio No. 1"
+                           "Description":  "Tsukuba Studio No. 1",
+                           "Location":  "Ishioka, Japan"
                        },
                        {
                            "Scene":  "Zen MV (office scenes)",
                            "Lat":  35.7053525,
                            "Lon":  139.6667378,
-                           "Description":  "MAPPA Studios (new headquarters in Nakano)"
+                           "Description":  "MAPPA Studios (new headquarters in Nakano)",
+                           "Location":  "Nakano, Japan"
                        }
                    ]
     },
@@ -1053,7 +1170,8 @@
                            "Scene":  "Ready to Rock MV",
                            "Lat":  35.1073536,
                            "Lon":  140.1077557,
-                           "Description":  "Kamogawa Reitoku High School"
+                           "Description":  "Kamogawa Reitoku High School",
+                           "Location":  "Kamogawa, Japan"
                        }
                    ]
     },
@@ -1065,7 +1183,8 @@
                            "Scene":  "What is justice? MV",
                            "Lat":  36.6025115,
                            "Lon":  139.8258441,
-                           "Description":  "Remains of Oya underground stone quarry"
+                           "Description":  "Remains of Oya underground stone quarry",
+                           "Location":  "Utsunomiya, Japan"
                        }
                    ]
     },
@@ -1077,13 +1196,15 @@
                            "Scene":  "Present Perfect MV (outdoor scenes)",
                            "Lat":  35.7139358,
                            "Lon":  140.8188755,
-                           "Description":  "HILLTOP Studio"
+                           "Description":  "HILLTOP Studio",
+                           "Location":  "Choshi, Japan"
                        },
                        {
                            "Scene":  "Present Perfect MV (studio scenes)",
                            "Lat":  35.6380355,
                            "Lon":  139.8277552,
-                           "Description":  "Shinkiba Garden Factory Studio"
+                           "Description":  "Shinkiba Garden Factory Studio",
+                           "Location":  "Koto, Japan"
                        }
                    ]
     }

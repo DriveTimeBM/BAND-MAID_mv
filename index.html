@@ -133,6 +133,10 @@
   .video-section {
     padding: 14px;
     border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 5;
   }
   .video-wrapper {
     position: relative;
@@ -195,6 +199,23 @@
   .place-item .place-meta {
     font-size: 11px;
     color: var(--text3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .maps-link {
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 12px;
+    padding: 1px 5px;
+    border-radius: 3px;
+    transition: color 0.12s, background 0.12s;
+    flex-shrink: 0;
+  }
+  .maps-link:hover {
+    color: var(--accent);
+    background: var(--bg);
   }
 
   /* ── PANE: MAP + DETAILS ──────────────────────────────────────────── */
@@ -233,11 +254,25 @@
     margin-bottom: 12px;
     font-size: 13px;
   }
+  .details-location {
+    font-size: 13px;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
   .details-coords {
     font-size: 11px;
     color: var(--text3);
     font-family: 'Consolas', monospace;
     margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .details-coords .maps-link {
+    font-family: var(--font);
+    font-size: 12px;
   }
 
   /* Timestamp chips */
@@ -493,6 +528,7 @@
   const getLon     = p  => +getField(p, 'Lon', 'lon', 'Lng', 'lng', 'Longitude', 'longitude');
   const getScene   = p  => getField(p, 'Scene', 'scene') || '';
   const getDesc    = p  => getField(p, 'Description', 'description') || '';
+  const getLocation = p => getField(p, 'Location', 'location') || '';
   // Images may be a single string, an array of strings, or null/missing.
   // Always normalize to an array so the rest of the code can iterate uniformly.
   function getImages(p) {
@@ -645,13 +681,19 @@
       <div class="places-list" id="placesList">
         ${places.map((p, i) => {
           const lat = getLat(p), lon = getLon(p);
-          const coords = (isNaN(lat) || isNaN(lon))
-            ? '—'
-            : `${lat.toFixed(4)}, ${lon.toFixed(4)}`;
+          const validCoords = !isNaN(lat) && !isNaN(lon);
+          const loc = getLocation(p);
+          const metaText = loc || (validCoords ? `${lat.toFixed(4)}, ${lon.toFixed(4)}` : '—');
+          const mapsLink = validCoords
+            ? `<a class="maps-link" href="https://www.google.com/maps?q=${lat},${lon}" target="_blank" rel="noopener" title="Open in Google Maps" onclick="event.stopPropagation()">↗</a>`
+            : '';
           return `
             <div class="place-item" data-idx="${i}">
               <div class="place-scene">${escapeHtml(getScene(p) || ('Place ' + (i+1)))}</div>
-              <div class="place-meta">${coords}</div>
+              <div class="place-meta">
+                <span>${escapeHtml(metaText)}</span>
+                ${mapsLink}
+              </div>
             </div>`;
         }).join('')}
       </div>`;
@@ -693,14 +735,25 @@
     const stamps = parseTimestamps(getScene(p));
     const images = getImages(p);
     const lat    = getLat(p), lon = getLon(p);
-    const coords = (isNaN(lat) || isNaN(lon)) ? '' : `${lat.toFixed(6)}, ${lon.toFixed(6)}`;
+    const validCoords = !isNaN(lat) && !isNaN(lon);
+    const coords = validCoords ? `${lat.toFixed(6)}, ${lon.toFixed(6)}` : '';
+    const location = getLocation(p);
+    const mapsUrl = validCoords ? `https://www.google.com/maps?q=${lat},${lon}` : '';
 
     details.innerHTML = `
       <div class="details-title">${escapeHtml(getScene(p) || 'Place')}</div>
       ${getDesc(p)
         ? `<div class="details-description">${escapeHtml(getDesc(p))}</div>`
         : ''}
-      ${coords ? `<div class="details-coords">${coords}</div>` : ''}
+      ${location
+        ? `<div class="details-location">📍 ${escapeHtml(location)}</div>`
+        : ''}
+      ${coords
+        ? `<div class="details-coords">
+             <span>${coords}</span>
+             <a href="${mapsUrl}" target="_blank" rel="noopener" class="maps-link">Open in Google Maps ↗</a>
+           </div>`
+        : ''}
       ${stamps.length
         ? `<div class="timestamps">
             ${stamps.map(t =>
