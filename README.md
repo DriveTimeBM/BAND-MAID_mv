@@ -129,4 +129,4 @@ Then open `http://localhost:8000`.
 
 ## Disclaimer
 
-This is an unofficial fan project. It is not affiliated with, endorsed by, or sponsored by BAND-MAID, Platinum Passers Inc., or any related entity. All trademarks and music are the property of their respective owners.
+This is an unofficial fan project. It is not affiliated with, endorsed by, or sponsored by BAND-MAID, MAIDIT, Pony Canyon, or any related entity. All trademarks and music are the property of their respective owners.
