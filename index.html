@@ -243,6 +243,17 @@
     color: var(--accent);
     background: var(--bg);
   }
+  .line-badge {
+    font-size: 10px;
+    color: var(--accent);
+    background: var(--bg);
+    border: 1px solid var(--border2);
+    padding: 1px 5px;
+    border-radius: 8px;
+    font-family: 'Consolas', monospace;
+    flex-shrink: 0;
+    line-height: 1;
+  }
 
   /* ── PANE: MAP + DETAILS ──────────────────────────────────────────── */
   .map-pane { display: flex; flex-direction: column; }
@@ -299,6 +310,23 @@
   .details-coords .maps-link {
     font-family: var(--font);
     font-size: 12px;
+  }
+  .details-coords-line {
+    align-items: flex-start;
+  }
+  .line-points {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .line-points-label {
+    font-family: var(--font);
+    font-size: 11px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    margin-bottom: 4px;
   }
 
   /* Timestamp chips */
@@ -511,7 +539,7 @@
   // https://www.maptiler.com/cloud/ and paste it below. Free tier = 100k
   // tile loads/month, no card required. With no key the language dropdown
   // is hidden and only the OSM/Carto styles are available.
-  const MAPTILER_KEY = 'VVjNt2XpIt3m3qNgLhkp';   // ← paste your key here
+  const MAPTILER_KEY = '';   // ← paste your key here
 
   // Tile-layer presets. {lang} placeholder is replaced for MapTiler styles.
   const MAP_STYLES = {
@@ -594,6 +622,7 @@
   let currentPlace  = null;
   let map           = null;
   let markers       = [];           // Leaflet marker refs (parallel to currentMV.Places)
+  let polylines     = [];           // Leaflet polyline refs (parallel; null for point places)
   let ytPlayer      = null;
   let ytReady       = false;
   let pendingVideoId = null;        // queued before YT API ready
@@ -649,8 +678,57 @@
   const getSong    = mv => getField(mv, 'Song', 'song', 'Title', 'title') || 'Untitled';
   const getVideoId = mv => getField(mv, 'VideoId', 'videoId', 'video_id', 'YouTubeId');
   const getPlaces  = mv => getField(mv, 'Places', 'places') || [];
-  const getLat     = p  => +getField(p, 'Lat', 'lat', 'Latitude', 'latitude');
-  const getLon     = p  => +getField(p, 'Lon', 'lon', 'Lng', 'lng', 'Longitude', 'longitude');
+  // Backward-compat single-coord accessors. These always return a SCALAR
+  // (the centroid for line geometries) so existing code paths keep working.
+  // For new line-aware code, use getCoords() below.
+  const getLat     = p  => {
+    const c = getCoords(p);
+    return c.type === 'invalid' ? NaN : c.center[0];
+  };
+  const getLon     = p  => {
+    const c = getCoords(p);
+    return c.type === 'invalid' ? NaN : c.center[1];
+  };
+
+  // Normalize a place's coordinates into a single shape:
+  //   { type, points, center, count }
+  // - type   : 'point' (1 point) | 'line' (>=2 points) | 'invalid'
+  // - points : array of [lat, lon] tuples (always an array)
+  // - center : [lat, lon] centroid — used for marker placement + flyTo
+  // - count  : number of points
+  // Accepts either scalar Lat/Lon (point) or parallel arrays (polyline).
+  function getCoords(p) {
+    const latRaw = getField(p, 'Lat', 'lat', 'Latitude', 'latitude');
+    const lonRaw = getField(p, 'Lon', 'lon', 'Lng', 'lng', 'Longitude', 'longitude');
+    if (latRaw === undefined || lonRaw === undefined) {
+      return { type: 'invalid', points: [], center: [NaN, NaN], count: 0 };
+    }
+    const lats = Array.isArray(latRaw) ? latRaw : [latRaw];
+    const lons = Array.isArray(lonRaw) ? lonRaw : [lonRaw];
+    // If arrays don't pair up, treat as invalid rather than guess.
+    if (lats.length !== lons.length || lats.length === 0) {
+      return { type: 'invalid', points: [], center: [NaN, NaN], count: 0 };
+    }
+    const points = [];
+    for (let i = 0; i < lats.length; i++) {
+      const la = +lats[i], lo = +lons[i];
+      if (isNaN(la) || isNaN(lo)) {
+        return { type: 'invalid', points: [], center: [NaN, NaN], count: 0 };
+      }
+      points.push([la, lo]);
+    }
+    // Centroid (simple average — fine for short segments at the scales we care about).
+    const center = [
+      points.reduce((s, pt) => s + pt[0], 0) / points.length,
+      points.reduce((s, pt) => s + pt[1], 0) / points.length
+    ];
+    return {
+      type:   points.length === 1 ? 'point' : 'line',
+      points,
+      center,
+      count: points.length
+    };
+  }
   const getScene   = p  => getField(p, 'Scene', 'scene') || '';
   const getDesc    = p  => getField(p, 'Description', 'description') || '';
   const getLocation = p => getField(p, 'Location', 'location') || '';
@@ -674,6 +752,23 @@
     if (!path) return '';
     if (/^https?:\/\//i.test(path)) return path;
     return IMAGE_BASE + path.replace(/^\//, '');
+  }
+
+  // Build a Google Maps URL appropriate to the geometry:
+  // - point: ?q=lat,lon (drops a pin)
+  // - line:  /maps/dir/lat,lon/lat,lon/... (shows a route between the points,
+  //          which is the cleanest standard way to visualize a polyline on
+  //          Google Maps without a custom map ID)
+  function buildGoogleMapsUrl(coords) {
+    if (coords.type === 'point') {
+      const [lat, lon] = coords.center;
+      return `https://www.google.com/maps?q=${lat},${lon}`;
+    }
+    if (coords.type === 'line') {
+      const segs = coords.points.map(([la, lo]) => `${la},${lo}`).join('/');
+      return `https://www.google.com/maps/dir/${segs}/`;
+    }
+    return '';
   }
 
   // Parse "0:19-0:22, 0:41-0:49" into an array of { label, start } objects.
@@ -773,7 +868,9 @@
 
   function clearMarkers() {
     markers.forEach(m => map.removeLayer(m));
+    polylines.forEach(p => { if (p) map.removeLayer(p); });
     markers = [];
+    polylines = [];
   }
 
   function makeMarkerIcon(label, active) {
@@ -791,30 +888,65 @@
     const places = getPlaces(currentMV);
     const bounds = [];
     places.forEach((p, i) => {
-      const lat = getLat(p), lon = getLon(p);
-      if (isNaN(lat) || isNaN(lon)) return;
-      const marker = L.marker([lat, lon], {
+      const c = getCoords(p);
+      if (c.type === 'invalid') {
+        // Keep arrays parallel to places so highlightMarker(i) lines up.
+        markers.push(null);
+        polylines.push(null);
+        return;
+      }
+
+      // For line-type places, draw a polyline AND a numbered pin at the centroid.
+      // The pin keeps the place clickable + visible at low zoom; the line
+      // shows the actual segment when you zoom in.
+      let polyline = null;
+      if (c.type === 'line') {
+        polyline = L.polyline(c.points, {
+          color:       '#c8a96e',          // var(--accent), inlined for Leaflet
+          weight:      4,
+          opacity:     0.85,
+          lineCap:     'round',
+          lineJoin:    'round'
+        });
+        polyline.on('click', () => selectPlace(i));
+        polyline.addTo(map);
+        c.points.forEach(pt => bounds.push(pt));
+      }
+      polylines.push(polyline);
+
+      const marker = L.marker(c.center, {
         icon: makeMarkerIcon(i + 1, false)
       });
       marker.on('click', () => selectPlace(i));
       const sceneShort = (getScene(p) || '').slice(0, 40);
+      const lineHint = c.type === 'line' ? `<br><i>line · ${c.count} pts</i>` : '';
       marker.bindPopup(
         '<b>' + escapeHtml(getSong(currentMV)) + '</b><br>' +
-        escapeHtml(sceneShort) + (getScene(p).length > 40 ? '…' : '')
+        escapeHtml(sceneShort) + (getScene(p).length > 40 ? '…' : '') +
+        lineHint
       );
       marker.addTo(map);
       markers.push(marker);
-      bounds.push([lat, lon]);
+      bounds.push(c.center);
     });
-    if (bounds.length) {
-      if (bounds.length === 1) map.setView(bounds[0], 16);
-      else map.fitBounds(bounds, { padding: [40, 40], maxZoom: 16 });
+    const validBounds = bounds.filter(b => !isNaN(b[0]) && !isNaN(b[1]));
+    if (validBounds.length) {
+      if (validBounds.length === 1) map.setView(validBounds[0], 16);
+      else map.fitBounds(validBounds, { padding: [40, 40], maxZoom: 16 });
     }
   }
 
   function highlightMarker(idx) {
     markers.forEach((m, i) => {
-      m.setIcon(makeMarkerIcon(i + 1, i === idx));
+      if (m) m.setIcon(makeMarkerIcon(i + 1, i === idx));
+    });
+    polylines.forEach((pl, i) => {
+      if (!pl) return;
+      pl.setStyle({
+        weight:  i === idx ? 6   : 4,
+        opacity: i === idx ? 1.0 : 0.85,
+        color:   i === idx ? '#e0c590' : '#c8a96e'   // accent2 vs accent
+      });
     });
   }
 
@@ -860,19 +992,30 @@
       <div class="section-label">Places (${places.length})</div>
       <div class="places-list" id="placesList">
         ${places.map((p, i) => {
-          const lat = getLat(p), lon = getLon(p);
-          const validCoords = !isNaN(lat) && !isNaN(lon);
+          const c = getCoords(p);
+          const validCoords = c.type !== 'invalid';
           const loc = getLocation(p);
-          const metaText = loc || (validCoords ? `${lat.toFixed(4)}, ${lon.toFixed(4)}` : '—');
-          const mapsLink = validCoords
-            ? `<a class="maps-link" href="https://www.google.com/maps?q=${lat},${lon}" target="_blank" rel="noopener" title="Open in Google Maps" onclick="event.stopPropagation()">↗</a>`
+          let metaText;
+          if (loc) {
+            metaText = loc;
+          } else if (validCoords) {
+            metaText = `${c.center[0].toFixed(4)}, ${c.center[1].toFixed(4)}`;
+          } else {
+            metaText = '—';
+          }
+          const lineBadge = c.type === 'line'
+            ? `<span class="line-badge" title="Line segment with ${c.count} points">↔ ${c.count}</span>`
+            : '';
+          const mapsHref = buildGoogleMapsUrl(c);
+          const mapsLink = mapsHref
+            ? `<a class="maps-link" href="${mapsHref}" target="_blank" rel="noopener" title="Open in Google Maps" onclick="event.stopPropagation()">↗</a>`
             : '';
           return `
             <div class="place-item" data-idx="${i}">
               <div class="place-scene">${escapeHtml(getScene(p) || ('Place ' + (i+1)))}</div>
               <div class="place-meta">
                 <span>${escapeHtml(metaText)}</span>
-                ${mapsLink}
+                <span style="display:flex;align-items:center;gap:6px;">${lineBadge}${mapsLink}</span>
               </div>
             </div>`;
         }).join('')}
@@ -914,11 +1057,36 @@
     const p = currentPlace;
     const stamps = parseTimestamps(getScene(p));
     const images = getImages(p);
-    const lat    = getLat(p), lon = getLon(p);
-    const validCoords = !isNaN(lat) && !isNaN(lon);
-    const coords = validCoords ? `${lat.toFixed(6)}, ${lon.toFixed(6)}` : '';
+    const c = getCoords(p);
+    const validCoords = c.type !== 'invalid';
     const location = getLocation(p);
-    const mapsUrl = validCoords ? `https://www.google.com/maps?q=${lat},${lon}` : '';
+    const mapsUrl  = buildGoogleMapsUrl(c);
+
+    // Coords block: single line for points, list of points for lines.
+    let coordsHtml = '';
+    if (validCoords) {
+      const linkLabel = c.type === 'line' ? 'View segment in Google Maps ↗' : 'Open in Google Maps ↗';
+      if (c.type === 'point') {
+        const [la, lo] = c.center;
+        coordsHtml = `
+          <div class="details-coords">
+            <span>${la.toFixed(6)}, ${lo.toFixed(6)}</span>
+            <a href="${mapsUrl}" target="_blank" rel="noopener" class="maps-link">${linkLabel}</a>
+          </div>`;
+      } else {
+        const ptList = c.points.map(([la, lo], idx) =>
+          `<div>${idx + 1}. ${la.toFixed(6)}, ${lo.toFixed(6)}</div>`
+        ).join('');
+        coordsHtml = `
+          <div class="details-coords details-coords-line">
+            <div class="line-points">
+              <div class="line-points-label">Line segment · ${c.count} points</div>
+              ${ptList}
+            </div>
+            <a href="${mapsUrl}" target="_blank" rel="noopener" class="maps-link">${linkLabel}</a>
+          </div>`;
+      }
+    }
 
     details.innerHTML = `
       <div class="details-title">${escapeHtml(getScene(p) || 'Place')}</div>
@@ -928,12 +1096,7 @@
       ${location
         ? `<div class="details-location">📍 ${escapeHtml(location)}</div>`
         : ''}
-      ${coords
-        ? `<div class="details-coords">
-             <span>${coords}</span>
-             <a href="${mapsUrl}" target="_blank" rel="noopener" class="maps-link">Open in Google Maps ↗</a>
-           </div>`
-        : ''}
+      ${coordsHtml}
       ${stamps.length
         ? `<div class="timestamps">
             ${stamps.map(t =>
@@ -1003,9 +1166,13 @@
       el.classList.toggle('active', i === idx));
     highlightMarker(idx);
 
-    const lat = getLat(currentPlace), lon = getLon(currentPlace);
-    if (!isNaN(lat) && !isNaN(lon)) {
-      map.flyTo([lat, lon], Math.max(map.getZoom(), 16), { duration: 0.6 });
+    const c = getCoords(currentPlace);
+    if (c.type === 'point') {
+      map.flyTo(c.center, Math.max(map.getZoom(), 16), { duration: 0.6 });
+      if (markers[idx]) markers[idx].openPopup();
+    } else if (c.type === 'line') {
+      // Fit the whole segment on screen, but don't zoom out absurdly close.
+      map.flyToBounds(c.points, { padding: [60, 60], maxZoom: 17, duration: 0.6 });
       if (markers[idx]) markers[idx].openPopup();
     }
     renderDetails();
