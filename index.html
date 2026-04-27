@@ -759,14 +759,19 @@
   // - line:  /maps/dir/lat,lon/lat,lon/... (shows a route between the points,
   //          which is the cleanest standard way to visualize a polyline on
   //          Google Maps without a custom map ID)
+  // The t= parameter controls the base layer:
+  //   t=m  standard map      t=k  satellite (no labels)
+  //   t=h  hybrid (sat+labels — the most useful default for location scouting)
+  //   t=p  terrain
+  const GMAPS_LAYER = 'h';   // ← change to 'k' for pure satellite, 'm' for map
   function buildGoogleMapsUrl(coords) {
     if (coords.type === 'point') {
       const [lat, lon] = coords.center;
-      return `https://www.google.com/maps?q=${lat},${lon}`;
+      return `https://www.google.com/maps?q=${lat},${lon}&t=${GMAPS_LAYER}`;
     }
     if (coords.type === 'line') {
       const segs = coords.points.map(([la, lo]) => `${la},${lo}`).join('/');
-      return `https://www.google.com/maps/dir/${segs}/`;
+      return `https://www.google.com/maps/dir/${segs}/data=!3m1!1e3`;
     }
     return '';
   }
